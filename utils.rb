@@ -7,4 +7,8 @@ module Utils
       line.start_with?('#')
     end.map(&:strip)
   end
+
+  def self.as_grid(lines)
+    lines.map { |line| line.chars }
+  end
 end
