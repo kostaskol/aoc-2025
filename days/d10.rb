@@ -2,7 +2,11 @@
 
 require_relative 'base'
 
-require 'z3'
+begin
+  require 'z3'
+rescue LoadError
+  # Z3 gem not available; part 2 will not work
+end
 
 module Days
   class D10 < Base
@@ -156,6 +160,8 @@ module Days
 
     # Solve using Z3 theorem prover
     def solve_with_z3(a_t, b)
+      return nil unless defined?(Z3)
+
       n_equations = a_t.length
       n_vars = a_t[0].length
       
