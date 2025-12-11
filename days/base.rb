@@ -4,16 +4,17 @@ module Days
   # The basic state provided by this class is the @lines array,
   # which is the input of the day's problem
   class Base
-    def initialize(lines)
+    def initialize(lines, test_mode)
       @lines = lines
+      @test_mode = test_mode
     end
 
-    def self.solve(part, lines)
+    def self.solve(part, lines, test_mode: false)
       case part.to_i
       when 1
-        new(lines).part1
+        new(lines, test_mode).part1
       when 2
-        new(lines).part2
+        new(lines, test_mode).part2
       else
         raise "Unknown part #{part}"
       end

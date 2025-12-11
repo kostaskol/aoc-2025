@@ -28,4 +28,4 @@ raise 'Part must be 1 or 2' if opts[:part] != 1 && opts[:part] != 2
 
 day_class = Object.const_get("Days::D#{opts[:day]}")
 
-puts day_class.solve(opts[:part], Utils.load(opts[:day], test: opts[:test], strip: opts[:strip]))
+puts day_class.solve(opts[:part], Utils.load(opts[:day], test: opts[:test], strip: opts[:strip]), test_mode: opts[:test])
