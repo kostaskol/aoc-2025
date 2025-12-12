@@ -4,11 +4,9 @@ module Utils
   def self.load(day, test: false, strip: false)
     filename = "input/d#{day}#{test ? '_test' : ''}.txt"
 
-    lines =
-      File.readlines(filename).reject do |line|
-        line.start_with?('#')
-      end
+    lines = File.readlines(filename)
 
+    lines.reject! { |line| line.start_with?('#') } if strip
     lines.map!(&:strip) if strip
     lines.map { |l| l.chomp("\n") }
   end
